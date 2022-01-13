@@ -12,7 +12,7 @@ export class ItemListTableComponent implements OnInit {
   public displayedColumns: string[] = ['profile', 'name', 'id','albumId', 'delete'];
   public dataSource: any;
   public pageIndex: number;
-
+  public item: any;
 
   constructor() { }
 
@@ -27,9 +27,5 @@ export class ItemListTableComponent implements OnInit {
     console.log(item);
   }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
-  }
 
 }

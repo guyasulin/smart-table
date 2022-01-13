@@ -1,18 +1,11 @@
 <div class="item-list-table" >
-  <!-- <mat-form-field appearance="standard">
-    <mat-label>Filter</mat-label>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
-  </mat-form-field> -->
-  <div class="paginator">
-    <mat-paginator
-      [length]="listItem?.length"
-      [pageSize]="5"
-      (page)="pageEvent($event)"
-    >
-    </mat-paginator>
-  </div>
+  <div class="search-product">
+    <mat-form-field>
+        <input matInput name="productName" [(ngModel)]="item" placeholder="asearch product">
+    </mat-form-field>
+</div>
 
-  <table mat-table [dataSource]="listItem  | paginate: { itemsPerPage: 5, currentPage: pageIndex }" matSort class="mat-elevation-z8">
+  <table mat-table [dataSource]="listItem  | search: item | paginate: { itemsPerPage: 5, currentPage: pageIndex }" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="profile">
       <th mat-header-cell *matHeaderCellDef> Profile </th>
@@ -45,7 +38,15 @@
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-
   </table>
+
+  <div class="paginator">
+    <mat-paginator
+      [length]="listItem?.length"
+      [pageSize]="5"
+      (page)="pageEvent($event)"
+    >
+    </mat-paginator>
+  </div>
 </div>
 
