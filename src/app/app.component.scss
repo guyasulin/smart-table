@@ -1,0 +1,12 @@
+.container {
+  display: flex;
+
+  .item {
+    flex: 1;
+    border: 1px solid;
+  }
+
+  .item-list-table {
+    flex: 1;
+  }
+}

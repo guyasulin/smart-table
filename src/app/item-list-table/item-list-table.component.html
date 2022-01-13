@@ -1,0 +1,51 @@
+<div class="item-list-table" >
+  <!-- <mat-form-field appearance="standard">
+    <mat-label>Filter</mat-label>
+    <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+  </mat-form-field> -->
+  <div class="paginator">
+    <mat-paginator
+      [length]="listItem?.length"
+      [pageSize]="5"
+      (page)="pageEvent($event)"
+    >
+    </mat-paginator>
+  </div>
+
+  <table mat-table [dataSource]="listItem  | paginate: { itemsPerPage: 5, currentPage: pageIndex }" matSort class="mat-elevation-z8">
+
+    <ng-container matColumnDef="profile">
+      <th mat-header-cell *matHeaderCellDef> Profile </th>
+      <td mat-cell *matCellDef="let element">
+        <img src="{{element.thumbnailUrl}}"></td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> ID </th>
+      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="albumId">
+      <th mat-header-cell *matHeaderCellDef> albumId </th>
+      <td mat-cell *matCellDef="let element"> {{element.albumId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="delete">
+      <th mat-header-cell *matHeaderCellDef> Delete </th>
+      <mat-cell *matCellDef="let element"> <button mat-icon-button matTooltip="Click to Delete" class="iconbutton"
+        (click)="removeItem(element)" color="warn">
+        <mat-icon>delete</mat-icon>
+      </button> </mat-cell>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+</div>
+

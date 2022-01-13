@@ -72,8 +72,7 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-          },
+          "options": {},
           "configurations": {
             "production": {
               "browserTarget": "smart-table:build:production"
@@ -128,6 +127,7 @@
   },
   "defaultProject": "smart-table",
   "cli": {
-    "analytics": "a7a73d1e-e9ee-4c5b-8169-757bb2dc6755"
+    "analytics": "a7a73d1e-e9ee-4c5b-8169-757bb2dc6755",
+    "defaultCollection": "@ngrx/schematics"
   }
 }
