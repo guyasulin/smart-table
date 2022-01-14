@@ -31,7 +31,6 @@ export class AddItemComponent implements OnInit {
   }
 
   add(newItem) {
-    console.log(newItem.form.value);
     this.store.dispatch(fromItemAction.addItem({ item:newItem.form.value}));
     this.dialogRef.close();
   }
