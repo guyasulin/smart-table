@@ -4,6 +4,7 @@
         <input matInput name="productName" [(ngModel)]="item" placeholder="asearch product">
     </mat-form-field>
 </div>
+<!-- <label *ngIf="listItem.length == 0">No data to display</label> -->
 
   <table mat-table [dataSource]="listItem  | search: item | paginate: { itemsPerPage: 5, currentPage: pageIndex }" matSort class="mat-elevation-z8">
 

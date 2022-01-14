@@ -1,5 +1,8 @@
 import { Item } from 'src/app/model/item';
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from 'src/app/index.reducer';
+import * as fromItemAction from '../store/item.actions';
 
 @Component({
   selector: 'app-item-list-table',
@@ -8,13 +11,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class ItemListTableComponent implements OnInit {
 
-  @Input() listItem: Item[];
   public displayedColumns: string[] = ['profile', 'name', 'id','albumId', 'delete'];
-  public dataSource: any;
+  public dataSource: any[]=[];
   public pageIndex: number;
   public item: any;
+  @Input() listItem: Item[];
 
-  constructor() { }
+  constructor(private store: Store<AppState>){}
 
   ngOnInit(): void {}
 
@@ -23,8 +26,10 @@ export class ItemListTableComponent implements OnInit {
   }
 
 
-  removeItem(item) {
+  removeItem(item: Item) {
     console.log(item);
+		this.store.dispatch(fromItemAction.removeItem({ id: item.id }));
+
   }
 
 

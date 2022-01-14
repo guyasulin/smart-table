@@ -14,3 +14,8 @@ export const loadItemsFailure = createAction(
   '[Item] Load Items Failure',
   props<{ error: any }>()
 );
+
+export const removeItem = createAction(
+  '[Item] Remove Items',
+  props<{ id: number }>()
+);

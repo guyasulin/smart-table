@@ -20,4 +20,11 @@ export const reducer = createReducer(
       items: action.item
     }
   }),
+  on(fromItemAction.removeItem, (state, action) => {
+		const deleteItem = state.items.filter((item) => item.id !== action.id);
+    return {
+      ...state,
+      items: deleteItem
+    }
+  }),
 );
