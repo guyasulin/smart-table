@@ -34,4 +34,18 @@ export const reducer = createReducer(
       items: updateItem
     }
   }),
+  on(fromItemAction.addItem, (state, action) => {
+    const { items } = state;
+		const id = items[items.length - 1] ? items[items.length - 1].id + 1 : 1;
+		const newItem = {
+			...action.item,
+			id
+		};
+		const newItems = [ ...items ];
+		newItems.unshift(newItem);
+    return {
+      ...state,
+      items: newItems
+    }
+  }),
 );

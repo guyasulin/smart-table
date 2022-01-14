@@ -26,6 +26,9 @@ import { SearchPipe } from './pipe/search.pipe';
 import { FormsModule } from '@angular/forms';
 import { SatPopoverModule } from '@ncstate/sat-popover';
 import { EditItemComponent } from './popups/edit-item/edit-item.component';
+import { AddItemComponent } from './popups/add-item/add-item.component';
+import {MatDialogModule} from '@angular/material/dialog';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +36,7 @@ import { EditItemComponent } from './popups/edit-item/edit-item.component';
     ItemComponent,
     SearchPipe,
     EditItemComponent,
+    AddItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -48,6 +52,7 @@ import { EditItemComponent } from './popups/edit-item/edit-item.component';
     MatFormFieldModule,
     HttpClientModule,
     SatPopoverModule,
+    MatDialogModule,
     StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),

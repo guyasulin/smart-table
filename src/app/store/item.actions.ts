@@ -21,6 +21,11 @@ export const removeItem = createAction(
 );
 
 export const updateItem = createAction(
-  '[Item] Remove Items',
+  '[Item] Update Items',
   props<{ item: Item }>()
+);
+
+export const addItem = createAction(
+  '[Item] Add New Items',
+  props<{ item: any }>()
 );
