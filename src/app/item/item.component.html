@@ -1,5 +1,3 @@
 <div class="item-detail" *ngIf="item$ | async as item">
-  <div>
-      <img src="{{ item.url }}">
-  </div>
+  <img [src]="item.url" />
 </div>

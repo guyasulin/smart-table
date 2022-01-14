@@ -1,4 +1,21 @@
-.popover-wrapper {
-  padding: 16px;
-  background: lightgreen;
+.item-list-table {
+  .popover-wrapper {
+    padding: 16px;
+    background: lightgreen;
+  }
+
+  th{
+  width: 80px;
+  }
+  td {
+    width: 40%;
+  }
+  .profile {
+    .img-profile {
+      padding: 7px;
+    }
+  }
+  .mat-row-table {
+    cursor: pointer;
+  }
 }

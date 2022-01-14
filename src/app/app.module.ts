@@ -28,6 +28,7 @@ import { SatPopoverModule } from '@ncstate/sat-popover';
 import { EditItemComponent } from './popups/edit-item/edit-item.component';
 import { AddItemComponent } from './popups/add-item/add-item.component';
 import {MatDialogModule} from '@angular/material/dialog';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 @NgModule({
   declarations: [
@@ -52,6 +53,7 @@ import {MatDialogModule} from '@angular/material/dialog';
     MatFormFieldModule,
     HttpClientModule,
     SatPopoverModule,
+    MatToolbarModule,
     MatDialogModule,
     StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),

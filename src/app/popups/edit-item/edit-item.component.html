@@ -1,6 +1,11 @@
 <div class="edit-item">
+  <h3>Edit Title</h3>
   <form #form="ngForm">
+    <mat-form-field appearance="fill">
     <input matInput name="title" [ngModel]="item.title" >
-    <button mat-raised-button (click)="edit(form)" >Edit</button>
+  </mat-form-field>
+  <div>
+    <button mat-raised-button class="edit" type="submit" (click)="edit(form)" >Edit</button>
+  </div>
   </form>
 </div>

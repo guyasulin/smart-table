@@ -12,16 +12,17 @@ import { ItemListService } from 'src/app/service/item-list.service';
 })
 export class ItemListTableComponent implements OnInit {
 
-  public displayedColumns: string[] = ['profile', 'name', 'id','albumId', 'delete', 'edit'];
+  public displayedColumns: string[] = ['profile', 'name', 'id','albumId', 'edit', 'delete'];
   public dataSource: any[]=[];
   public pageIndex: number;
-  public item: any;
+  @Input() searchItem: any;
   @Input() listItem: Item[];
 
   constructor(private store: Store<AppState>,
     private itemListService: ItemListService){}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+  }
 
   pageEvent(event) {
     this.pageIndex = event.pageIndex + 1

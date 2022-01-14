@@ -1,16 +1,36 @@
-<div class="add-item">
-  <button (click)="addItem()">add item</button>
-</div>
+
 
 <div class="container">
-  <div class="item">
-    <app-item></app-item>
+  <div class="toolbar">
+      <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span></span>
+        <span class="example-spacer"></span>
+
+        <div class="add-item side" >
+          <button mat-raised-button class="btn-add-item" (click)="addItem()">
+          <mat-icon>add</mat-icon>
+          Add Item</button>
+        </div>
+
+        <div class="search-item side">
+          <mat-form-field >
+              <input matInput name="searchItem" [(ngModel)]="searchItem" placeholder="Search">
+          </mat-form-field>
+        </div>
+      </mat-toolbar-row>
+    </mat-toolbar>
   </div>
 
-  <div class="item-list-table" *ngIf="listItem$ | async as listItem;">
-    <div *ngIf="listItem.length !== []">
-      <app-item-list-table [listItem]="listItem"></app-item-list-table>
+  <div class="item-data">
+    <div class="item">
+      <app-item></app-item>
+    </div>
 
+    <div class="item-list-table" *ngIf="listItem$ | async as listItem;">
+      <div *ngIf="listItem.length !== []">
+        <app-item-list-table [listItem]="listItem" [searchItem]="searchItem"></app-item-list-table>
+      </div>
     </div>
   </div>
 </div>
