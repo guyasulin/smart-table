@@ -11,7 +11,7 @@ import * as fromItemAction from '../store/item.actions';
 })
 export class ItemListTableComponent implements OnInit {
 
-  public displayedColumns: string[] = ['profile', 'name', 'id','albumId', 'delete'];
+  public displayedColumns: string[] = ['profile', 'name', 'id','albumId', 'delete', 'edit'];
   public dataSource: any[]=[];
   public pageIndex: number;
   public item: any;
@@ -29,7 +29,6 @@ export class ItemListTableComponent implements OnInit {
   removeItem(item: Item) {
     console.log(item);
 		this.store.dispatch(fromItemAction.removeItem({ id: item.id }));
-
   }
 
 

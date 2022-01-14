@@ -5,7 +5,6 @@
     </mat-form-field>
 </div>
 <!-- <label *ngIf="listItem.length == 0">No data to display</label> -->
-
   <table mat-table [dataSource]="listItem  | search: item | paginate: { itemsPerPage: 5, currentPage: pageIndex }" matSort class="mat-elevation-z8">
 
     <ng-container matColumnDef="profile">
@@ -27,6 +26,23 @@
     <ng-container matColumnDef="albumId">
       <th mat-header-cell *matHeaderCellDef> albumId </th>
       <td mat-cell *matCellDef="let element"> {{element.albumId}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="edit">
+      <th mat-header-cell *matHeaderCellDef> Edit </th>
+      <mat-cell *matCellDef="let element">
+        <button mat-icon-button
+        [satPopoverAnchor]="p" (click)="p.toggle()" >
+        <mat-icon>edit</mat-icon>
+      </button>
+      <sat-popover #p verticalAlign="below">
+        <div class="popover-wrapper">
+          <app-edit-item [item]="element" ></app-edit-item>
+        </div>
+      </sat-popover>
+    </mat-cell>
+
+
     </ng-container>
 
     <ng-container matColumnDef="delete">

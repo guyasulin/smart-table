@@ -19,3 +19,8 @@ export const removeItem = createAction(
   '[Item] Remove Items',
   props<{ id: number }>()
 );
+
+export const updateItem = createAction(
+  '[Item] Remove Items',
+  props<{ item: Item }>()
+);

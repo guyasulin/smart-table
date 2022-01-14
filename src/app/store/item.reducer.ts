@@ -27,4 +27,11 @@ export const reducer = createReducer(
       items: deleteItem
     }
   }),
+  on(fromItemAction.updateItem, (state, action) => {
+    const updateItem = state.items.map((item) => action.item.id === item.id ? action.item : item)
+    return {
+      ...state,
+      items: updateItem
+    }
+  }),
 );

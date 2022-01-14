@@ -4,7 +4,7 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ItemListTableComponent } from './item-list-table/item-list-table.component';
 import { ItemComponent } from './item/item.component';
 import {MatTableModule} from '@angular/material/table';
@@ -24,12 +24,15 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { SearchPipe } from './pipe/search.pipe';
 import { FormsModule } from '@angular/forms';
+import { SatPopoverModule } from '@ncstate/sat-popover';
+import { EditItemComponent } from './popups/edit-item/edit-item.component';
 @NgModule({
   declarations: [
     AppComponent,
     ItemListTableComponent,
     ItemComponent,
     SearchPipe,
+    EditItemComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,6 +47,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatFormFieldModule,
     HttpClientModule,
+    SatPopoverModule,
     StoreModule.forRoot(AppReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production }),
     EffectsModule.forRoot([]),
