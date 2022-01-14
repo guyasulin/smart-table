@@ -19,8 +19,6 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.store.dispatch(fromItemAction.loadItems());
     this.listItem$ =  this.store.select(store => store.items.items);
-
-
   }
 
   addItem() {

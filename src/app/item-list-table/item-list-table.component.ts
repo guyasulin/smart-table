@@ -3,6 +3,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { AppState } from 'src/app/index.reducer';
 import * as fromItemAction from '../store/item.actions';
+import { ItemListService } from 'src/app/service/item-list.service';
 
 @Component({
   selector: 'app-item-list-table',
@@ -17,7 +18,8 @@ export class ItemListTableComponent implements OnInit {
   public item: any;
   @Input() listItem: Item[];
 
-  constructor(private store: Store<AppState>){}
+  constructor(private store: Store<AppState>,
+    private itemListService: ItemListService){}
 
   ngOnInit(): void {}
 
@@ -31,5 +33,8 @@ export class ItemListTableComponent implements OnInit {
 		this.store.dispatch(fromItemAction.removeItem({ id: item.id }));
   }
 
+  selectedItem(row) {
+    this.itemListService.selectedItemChanged(row.id)
+  }
 
 }
