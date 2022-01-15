@@ -31,6 +31,7 @@ export class AddItemComponent implements OnInit {
   }
 
   add(newItem) {
+    newItem.form.value.thumbnailUrl = this.item.thumbnailUrl;
     this.store.dispatch(fromItemAction.addItem({ item:newItem.form.value}));
     this.dialogRef.close();
   }

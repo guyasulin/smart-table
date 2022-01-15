@@ -1,7 +1,9 @@
 <div class="item-list-table" >
 <label *ngIf="listItem.length == 0">No data to display</label>
 
-  <table mat-table  [dataSource]="listItem  | search: searchItem | paginate: { itemsPerPage: 5, currentPage: pageIndex }" matSort class="mat-elevation-z8">
+  <table mat-table *ngIf="listItem.length !== 0"
+  [dataSource]="listItem  | search: searchItem | paginate: { itemsPerPage: 5, currentPage: pageIndex }" matSort class="mat-elevation-z8">
+
     <ng-container matColumnDef="profile">
       <th mat-header-cell *matHeaderCellDef> Profile </th>
       <td  class="profile" mat-cell *matCellDef="let element">
@@ -51,8 +53,6 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr class="mat-row-table" mat-row *matRowDef="let row; columns: displayedColumns;" (click)="selectedItem(row)"></tr>
   </table>
-
-  </div>
   <div class="paginator">
     <mat-paginator
       [length]="listItem?.length"
@@ -60,5 +60,6 @@
       (page)="pageEvent($event)"
     >
     </mat-paginator>
+  </div>
 </div>
 

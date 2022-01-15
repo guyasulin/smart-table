@@ -12,8 +12,8 @@ export class SearchPipe implements PipeTransform {
     }
 
     return items.filter(item =>
-      item.title.toLowerCase().indexOf(itemIdTitle.toLowerCase()) !== -1 ||
-      item.id.toString().indexOf(itemIdTitle.toLowerCase()) !== -1);
+      item.title.toLowerCase().startsWith(itemIdTitle.toLowerCase()) ||
+      item.id.toString().startsWith(itemIdTitle.toLowerCase()));
   }
 
 }

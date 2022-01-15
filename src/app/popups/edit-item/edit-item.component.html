@@ -2,10 +2,11 @@
   <h3>Edit Title</h3>
   <form #form="ngForm">
     <mat-form-field appearance="fill">
-    <input matInput name="title" [ngModel]="item.title" >
+    <input matInput name="title" required [ngModel]="item.title" >
+    <mat-error *ngIf="form.controls['title']?.errors?.required"> Title is required.</mat-error>
   </mat-form-field>
   <div>
-    <button mat-raised-button class="edit" type="submit" (click)="edit(form)" >Edit</button>
+    <button mat-raised-button class="edit"[disabled]="!form.valid" (click)="edit(form)" >Edit</button>
   </div>
   </form>
 </div>

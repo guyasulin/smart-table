@@ -13,9 +13,9 @@ import { ItemListService } from 'src/app/service/item-list.service';
 export class ItemListTableComponent implements OnInit {
 
   public displayedColumns: string[] = ['profile', 'name', 'id','albumId', 'edit', 'delete'];
-  public dataSource: any[]=[];
+  public dataSource: any[];
   public pageIndex: number;
-  @Input() searchItem: any;
+  @Input() searchItem: any = '';
   @Input() listItem: Item[];
 
   constructor(private store: Store<AppState>,
@@ -30,7 +30,6 @@ export class ItemListTableComponent implements OnInit {
 
 
   removeItem(item: Item) {
-    console.log(item);
 		this.store.dispatch(fromItemAction.removeItem({ id: item.id }));
   }
 
