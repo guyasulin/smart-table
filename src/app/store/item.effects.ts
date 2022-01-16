@@ -21,7 +21,7 @@ export class ItemEffects {
           switchMap(() =>
             this.itemListService.getList().pipe(
               map((data) => {
-               return fromItemAction.loadItemsSuccess({ item: data })
+               return fromItemAction.loadItemsSuccess({ items: data })
               }),
               catchError(error => of(fromItemAction.loadItemsFailure({ error }))))
             ),

@@ -7,7 +7,7 @@ export const loadItems = createAction(
 
 export const loadItemsSuccess = createAction(
   '[Item] Load Items Success',
-  props<{ item: Item[] }>()
+  props<{ items: Item[] }>()
 );
 
 export const loadItemsFailure = createAction(

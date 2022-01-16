@@ -17,7 +17,7 @@ export const reducer = createReducer(
   on(fromItemAction.loadItemsSuccess, (state, action) => {
     return {
       ...state,
-      items: action.item
+      items: action.items
     }
   }),
   on(fromItemAction.removeItem, (state, action) => {

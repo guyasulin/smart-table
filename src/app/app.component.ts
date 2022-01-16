@@ -13,7 +13,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class AppComponent implements OnInit {
 
   public listItem$: Observable<any>;
-  public searchItem: any;
+  public searchItem: string | number;
 
   constructor(private store: Store<AppState>, public dialog: MatDialog){}
 
